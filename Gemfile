@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 
 
 group :development, :test do
-
+  gem 'therubyracer'
   gem 'byebug'
 end
 
