@@ -4,7 +4,10 @@ class HomepageController < ApplicationController
 
   def about
   end
-  
+
   def cookies
+  end
+
+  def create
   end
 end
