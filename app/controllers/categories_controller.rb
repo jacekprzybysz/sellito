@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :fetch_category, only: [:show, :edit, :update, :destroy]
+
   def index
     @categories = Category.all
   end
@@ -18,14 +20,9 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def show
-    @category = Category.find(params[:id])
+  def show; end
 
-  end
-
-  def edit
-    @category = Category.find(params[:id])
-  end
+  def edit; end
 
   def update
     @category = Category.find(params[:id])
@@ -34,13 +31,16 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy!
     flash[:notice] = "Category #{@category.name} delete"
     redirect_to categories_path
   end
 
   private
+
+  def fetch_category
+    @category = Category.find(params[:id])
+  end
 
   def category_params
     params.require(:category).permit(:name)
