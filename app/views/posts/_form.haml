@@ -1,0 +1,12 @@
+= form_for @post do |f|
+  %p
+  = f.label :title
+  = f.text_field :title
+  %p
+  = f.label :description
+  = f.text_area :description
+  %p
+  = f.label :expiration_date
+  = f.date_field :expiration_date
+  %p
+  = f.submit 'Submit', class: 'btn btn-primary'
