@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  # TODO: authorization with PUNDIT gem
+  
   before_action :fetch_category, only: [:show, :edit, :update, :destroy]
 
   def index
