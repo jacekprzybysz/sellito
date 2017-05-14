@@ -1,1 +1,8 @@
-%h2= @posts.all
+= button_to "Add post", new_post_path, method: :get, class: 'btn btn-primary'
+
+%h4 Posts
+
+- @posts.each do |post|
+  %p
+    = link_to post.title, post
+    = link_to 'Edit', edit_post_path(post) if post_owner(post)
