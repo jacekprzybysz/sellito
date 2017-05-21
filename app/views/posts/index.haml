@@ -1,6 +1,6 @@
-= button_to "Add post", new_post_path, method: :get, class: 'btn btn-primary'
+= button_to "Add post", new_post_path, method: :get, class: 'btn btn-primary' if current_user
 
-%h4 Posts
+%h2 Posts
 
 - @posts.each do |post|
   %p
