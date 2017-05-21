@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   # TODO: handle uploading photos
+  scope :featured_posts, -> { includes(:categories).order('id DESC').limit(10) }
   belongs_to :user, required: true
   has_many :post_categories
   has_many :categories, through: :post_categories
