@@ -32,3 +32,6 @@ Style/DotPosition:
   EnforcedStyle: leading
 Style/FrozenStringLiteralComment:
   Enabled: false
+Lint:
+  AmbiguousBlockAssociation:
+    Enable: false
