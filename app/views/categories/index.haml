@@ -1,4 +1,4 @@
-= button_to "ADD CATEGORY", new_category_path, method: :get, class: 'btn btn-primary'
+= button_to "ADD CATEGORY", new_category_path, method: :get, class: 'btn btn-primary' if current_user_is_admin
 
 - @categories.each do |category|
   %p= link_to category.name.capitalize, category
