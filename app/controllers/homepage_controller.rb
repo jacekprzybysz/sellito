@@ -1,7 +1,7 @@
 class HomepageController < ApplicationController
   def index
     @categories = Category.all
-    @posts = Post.all.includes(:categories)
+    @posts = Post.all.includes(:categories).limit(10)
   end
 
   def about; end
