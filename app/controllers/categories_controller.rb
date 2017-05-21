@@ -8,10 +8,12 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    authorize @category
   end
 
   def create
     @category = Category.new(category_params)
+    authorize @category
     if @category.save
       flash[:notice] = 'Category created!'
       redirect_to @category
@@ -23,15 +25,19 @@ class CategoriesController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    authorize @category
+  end
 
   def update
+    authorize @category
     @category = Category.find(params[:id])
     @category.update_attributes(category_params)
     redirect_to @category
   end
 
   def destroy
+    authorize @category
     @category.destroy!
     flash[:notice] = "Category #{@category.name} delete"
     redirect_to categories_path
