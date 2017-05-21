@@ -22,6 +22,8 @@ class PostsController < ApplicationController
 
   def edit
     authorize @post
+  rescue Pundit::NotAuthorizedError
+    redirect_to "https://www.zus.pl"
   end
 
   def update
